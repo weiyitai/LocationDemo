@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="高德地图  locationType\n1 GPS定位结果 2 前次定位结果 4 缓存定位结果 5 Wifi定位结果 6 基站定位结果纯 8 离线定位结果 9 最后位置缓存" />
+
+    <TextView
+        android:id="@+id/tv_amap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:text="点击开启高德定位" />
+
+    <TextView
+        android:id="@+id/tv_du"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:text="点击开启百度定位" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
