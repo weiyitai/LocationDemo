@@ -36,23 +36,22 @@ public class MainActivity extends Activity {
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_BACKGROUND_LOCATION};
     private AMapLocationClient mLocationClient;
-    private TextView mTvAmap;
-    private TextView mTvDu;
     private LocationClient mBaiduClient;
+    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mTvAmap = findViewById(R.id.tv_amap);
-        mTvDu = findViewById(R.id.tv_du);
+        TextView tvAmap = findViewById(R.id.tv_amap);
+        TextView tvDu = findViewById(R.id.tv_du);
         if (checkPer()) {
 //            gaoDe();
 //            baiDu();
         }
-        mTvAmap.setOnClickListener(v -> gaoDe());
-        mTvDu.setOnClickListener(v -> baiDu());
-
+        tvAmap.setOnClickListener(v -> gaoDe());
+        tvDu.setOnClickListener(v -> baiDu());
+        result = findViewById(R.id.tv_result);
     }
 
     /**
@@ -124,7 +123,7 @@ public class MainActivity extends Activity {
                 String address = aMapLocation.toStr();
                 Log.d("MainActivity", "aMapLocation:" + address);
                 try {
-                    mTvAmap.setText(new JSONObject(address).toString(2));
+                    result.setText(new JSONObject(address).toString(2));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -178,7 +177,7 @@ public class MainActivity extends Activity {
             int errorCode = location.getLocType();
             String s1 = "baidu errorCode:" + errorCode + " " + location.getLocTypeDescription() + " " + location.getAddrStr();
             Log.d("MainActivity", s1);
-            mTvDu.setText(s + " " + s1);
+            result.setText(s + "  " + s1);
             toa("baidu");
         }
 
